@@ -1,0 +1,85 @@
+.account-background {
+  background:
+    radial-gradient(ellipse at 12% 0%, #e1f5f1, transparent 55%),
+    radial-gradient(ellipse at 100% 16%, #e7efff, transparent 54%), #f8fafc;
+}
+
+.account-split {
+  display: grid;
+  max-width: 66rem;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: clamp(1.25rem, 4vw, 2rem);
+  background: white;
+  box-shadow: 0 20px 70px #183c5d13;
+}
+
+@media (width >= 64rem) {
+  .account-split {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+}
+
+.account-illustration {
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem;
+  color: white;
+  background:
+    radial-gradient(ellipse at 55% 48%, #1b6d7a, transparent 62%),
+    linear-gradient(145deg, #142c4a 5%, #0f364c 65%, #124b54);
+}
+
+.account-orbit {
+  display: grid;
+  width: min(100%, 19rem);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  place-items: center;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle,
+    transparent 0 2rem,
+    #bcfff343 2rem calc(2rem + 1px),
+    transparent calc(2rem + 1px) 2.65rem
+  );
+}
+
+.account-orbit-center {
+  display: grid;
+  width: 7.25rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid #a0efe2a3;
+  border-radius: 2rem;
+  color: #d7fff7;
+  background: linear-gradient(140deg, #2d8e8a, #164958);
+  box-shadow: 0 12px 38px #0628327a;
+}
+
+.account-link {
+  color: #096c63;
+  font-weight: 650;
+}
+
+.account-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.account-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.account-form label {
+  font-size: 0.875rem;
+}
+
+.account-hero {
+  background:
+    radial-gradient(ellipse at 92% 0%, #dcf8f4, transparent 66%), #fff;
+}

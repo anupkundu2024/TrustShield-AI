@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+@import './landing.css';
+@import './account.css';
+@import './workspace.css';
+
+@theme {
+  --font-sans: 'Inter Variable', Inter, system-ui, sans-serif;
+  --color-navy: #10233f;
+  --color-brand-teal: #0d9488;
+  --color-brand-blue: #2563eb;
+  --color-brand-violet: #8b5cf6;
+  --color-canvas: #f8fafc;
+  --color-surface: #ffffff;
+  --color-ink: #0f172a;
+  --color-muted: #52637a;
+  --color-subtle: #64748b;
+  --color-line: #dce6ee;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+}
+
+@layer base {
+  :root {
+    --action: #08756b;
+    --action-hover: #065e57;
+    --header-height: 4.5rem;
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+
+  :is(a, button, input):focus-visible {
+    outline: 3px solid var(--color-brand-blue);
+    outline-offset: 4px;
+  }
+
+  :is(main, section)[tabindex='-1']:focus {
+    outline: none;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@layer components {
+  .button {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-center text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .button-primary {
+    color: white;
+    background: var(--action);
+    box-shadow: 0 5px 12px #086e6026;
+  }
+
+  .button-primary:not(:disabled):hover {
+    background: var(--action-hover);
+    box-shadow: 0 7px 17px #086e603d;
+  }
+
+  .button-secondary {
+    @apply border border-line bg-white text-navy;
+  }
+
+  .button-secondary:not(:disabled):hover {
+    border-color: #aacad2;
+    background: #f7fcfc;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-30 focus:rounded-lg focus:bg-white focus:px-4 focus:py-3;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .button {
+      transition:
+        background-color 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        translate 160ms ease;
+    }
+
+    .button:not(:disabled):hover {
+      translate: 0 -1px;
+    }
+  }
+}
